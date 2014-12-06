@@ -3,28 +3,28 @@ Objective:
 	1. Calculate the image transformation (3D) matrix (rotation, scaling, translation)
 Library to be used:
 			1.use appropriate library
-			*/
+			*/ejml
+			https://github.com/lessthanoptimal/ejml
  
 
 class Transform
 {	
-	double source[];
-	double target[];
+	
 	double Rotation[]
 	double Scale[]
 	double Translation[]
 	
 	public getSource(String fileAdd)
 	{
-		//get the source 3d cooridnates to varible source
+		//get the source 3d cooridnates to list and calculate centroid
 		
 	}
 	public getTarget(String fileAdd)
 	{
-		//get the target 3d cooridnates to variable target
+		//get the target 3d cooridnates to list and calculate centroid
 	}
 	
-	public void getTransParameter(double[] src,double[] tar)
+	public void getTransParameter(List<Coordinates> src,List<Coordinates> tar)
 	{
 		//function to calculate Rotation, Scale and Translation parameters and set corresponding variable
 	}
