@@ -3,7 +3,8 @@ Objective:
 	1. Calculate the image transformation (3D) matrix (rotation, scaling, translation)
 Library to be used:
 			1.use appropriate library
-			*/EJML
+			*/EJML   
+                             https://github.com/lessthanoptimal/ejml
  
 
 class Transform
@@ -28,5 +29,3 @@ class Transform
 	}
 	
 }
-
-
