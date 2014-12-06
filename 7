@@ -1,0 +1,40 @@
+import java.util.*;
+/**
+ *
+ * @author group 7
+ */
+public class Transform {
+        double Rotation[][];
+	double Scale[];
+	double Translation[];
+	
+	public List<Coordinates> getSource(String fileAdd)
+	{
+		//get the source 3d cooridnates to varible source
+		ReadFile read_s=new ReadFile();
+		List<Coordinates> crds_s=read_s.getData(fileAdd);
+		return crds_s;	
+	}
+	public List<Coordinates> getTarget(String fileAdd)
+	{
+		//get the target 3d cooridnates to variable target
+		ReadFile read_t=new ReadFile();
+		List<Coordinates> crds_t=read_t.getData(fileAdd);
+		return crds_t;		
+	}
+	
+	public void getTransParameter(List<Coordinates> crds_s,List<Coordinates> crds_t)
+	{
+		//function to calculate Rotation, Scale and Translation parameters and set corresponding variable
+                Covariance Cov=new Covariance();
+		double[][] Cov_Matrix=Cov.getCov_Matrix(crds_s,crds_t);
+		//svd algorithm
+		Svd s=new Svd();
+               Rotation= s.getRotation(Cov_Matrix);
+               Translation trans=new Translation();
+               Translation=trans.getTranslation(crds_s,crds_t,Rotation);
+               Scale sc=new Scale();
+               Scale=sc.getScale(crds_s,crds_t);
+	}
+	
+}
